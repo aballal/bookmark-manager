@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 
 require_relative 'models/link'
 require_relative 'models/tag'
+require_relative 'models/user'
 
 postgres_database = "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}"
 # Heroku created postgresql-amorphous-43858 as DATABASE_URL

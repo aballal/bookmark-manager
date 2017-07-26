@@ -5,9 +5,16 @@ require_relative 'data_mapper_setup'
 
 # BookmarkManager is the controller
 class BookmarkManager < Sinatra::Base
+  enable :sessions
+
   get '/links' do
+    @user = session[:email]
     @links = Link.all
     erb(:'links/index')
+  end
+
+  get '/signup' do
+    erb(:'links/signup')
   end
 
   get '/links/new' do
@@ -26,6 +33,13 @@ class BookmarkManager < Sinatra::Base
       link.tags << Tag.first_or_create(name: tag_name)
     end
     link.save
+    redirect '/links'
+  end
+
+  post '/signup' do
+    # What if the email already exists?
+    User.create(email: params[:email], password: params[:password])
+    session[:email] = params[:email]
     redirect '/links'
   end
 
