@@ -1,5 +1,3 @@
-require_relative 'link'
-
 # Link corresponds to links table in the database
 class Link
   include DataMapper::Resource

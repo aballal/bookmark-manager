@@ -1,10 +1,8 @@
+require_relative 'web_helper'
+
 feature 'Adding a new link' do
   before do
-    visit '/links/new'
-    fill_in 'title', with: 'Makers Academy'
-    fill_in 'url', with: 'http://makersacademy.com'
-    fill_in 'tags', with: 'Education'
-    click_button 'Submit'
+    add_new_link('Makers Academy', 'http://makersacademy.com', 'education')
   end
 
   scenario 'adding title' do
@@ -21,6 +19,6 @@ feature 'Adding a new link' do
 
   scenario 'adding tag' do
     link = Link.last
-    expect(link.tags.map(&:name)).to include('Education')
+    expect(link.tags.map(&:name)).to include('education')
   end
 end
