@@ -18,4 +18,9 @@ feature 'Sign up to Bookmark Manager' do
     expect { add_new_user("", 'oranges!', 'oranges!') }.not_to change(User, :count)
   end
 
+  scenario 'A new user cannot sign up with an invalid email' do
+    expect { add_new_user("alice.com", 'oranges!', 'oranges!') }.not_to change(User, :count)
+    expect { add_new_user("alice@example", 'oranges!', 'oranges!') }.not_to change(User, :count)
+  end
+
 end

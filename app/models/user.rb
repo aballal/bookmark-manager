@@ -9,6 +9,7 @@ class User
   property :password_digest, Text
   attr_accessor :password_confirmation
 
+  validates_format_of :email, as: :email_address
   validates_confirmation_of :password
 
   def password=(password)
