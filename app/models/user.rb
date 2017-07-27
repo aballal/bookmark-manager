@@ -23,6 +23,6 @@ class User
   end
 
   private
-  attr_reader :password
 
+  attr_reader :password
 end
