@@ -8,7 +8,7 @@ feature 'Sign up to Bookmark Manager' do
 
   scenario 'A new user cannot sign up with non matching passwords' do
     expect { add_new_user(password_confirmation: 'oranges') }.not_to change(User, :count)
-    expect(current_path).to eq '/signup'
+    expect(current_path).to eq '/users'
     expect(page).to have_content "Password does not match the confirmation"
   end
 
