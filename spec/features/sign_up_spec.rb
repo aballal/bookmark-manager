@@ -1,9 +1,15 @@
 feature 'Sign up to Bookmark Manager' do
-  scenario 'A new user can sign up' do
+  scenario 'A new user can sign up with matching passwords' do
     email = 'alice@example.com'
-    expect { add_new_user(email, 'oranges!') }.to change(User, :count).by 1
+    expect { add_new_user(email, 'oranges!', 'oranges!') }.to change(User, :count).by 1
     expect(current_path).to eq '/links'
     expect(page).to have_content "Welcome, #{email}"
     expect(User.last.email).to eq email
   end
+
+  scenario 'A new user cannot sign up with non matching passwords' do
+    email = 'alice@example.com'
+    expect { add_new_user(email, 'oranges!', 'oranges') }.not_to change(User, :count)
+  end
+
 end
