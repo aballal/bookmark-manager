@@ -14,4 +14,8 @@ feature 'Sign up to Bookmark Manager' do
     expect(page).to have_content "Password and confirmation do not match"
   end
 
+  scenario 'A new user cannot sign up with a blank email' do
+    expect { add_new_user("", 'oranges!', 'oranges!') }.not_to change(User, :count)
+  end
+
 end
