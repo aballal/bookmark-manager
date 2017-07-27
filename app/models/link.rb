@@ -1,4 +1,5 @@
-# Link corresponds to links table in the database
+# Link class (links table) holds data for each link
+# One link can have multiple tags (Tag class, tags table)
 class Link
   include DataMapper::Resource
 
