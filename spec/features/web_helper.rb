@@ -6,7 +6,7 @@ def add_new_link(title, url, tags)
   click_button 'Add Link'
 end
 
-def add_new_user(email, password, password_confirmation)
+def add_new_user(email: 'alice@example.com', password: 'oranges!', password_confirmation: 'oranges!')
   visit('/signup')
   fill_in 'email', with: email
   fill_in 'password', with: password
