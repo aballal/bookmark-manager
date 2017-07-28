@@ -11,12 +11,20 @@
     li {
       margin-left: 30px;
     }
+    form#signout {
+      display:inline-block;
+      margin-left: 500px;
+    }
     </style>
   </head>
 
   <body>
     <% if current_user %>
       Welcome, <%= current_user.email %>
+      <form id='signout' action='/sessions' method="post">
+        <input type='hidden' name='_method' value='delete'>
+        <input type="submit" value="Sign Out" />
+      </form>
     <% else %>
       <br>
     <% end %>
@@ -29,6 +37,11 @@
           <li><%= error %></li>
         <% end %>
       </ul>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
   </body>
 </html>
