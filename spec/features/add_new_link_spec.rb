@@ -1,5 +1,3 @@
-require_relative 'web_helper'
-
 feature 'Adding a new link' do
   scenario 'A new link can be added' do
     add_new_link('Makers Academy', 'http://makersacademy.com', 'education')

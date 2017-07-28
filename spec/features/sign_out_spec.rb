@@ -1,5 +1,3 @@
-require_relative 'web_helper'
-
 feature 'Signing out' do
   scenario 'A user can sign out' do
     user = User.create(email: 'harry@potter.com',

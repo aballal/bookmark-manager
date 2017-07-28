@@ -1,5 +1,3 @@
-require_relative 'web_helper'
-
 feature 'Signing in' do
   scenario 'A user can sign in with correct credentials' do
     user = User.create(email: 'harry@potter.com',
