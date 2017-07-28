@@ -7,6 +7,4 @@ feature 'Signing in' do
     expect(current_path).to eq '/links'
     expect(page).to have_content "Welcome, #{user.email}"
   end
-
-  # Add a test for incorrect credentials
 end

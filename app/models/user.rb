@@ -25,5 +25,4 @@ class User
   private
 
   attr_reader :password
-
 end
