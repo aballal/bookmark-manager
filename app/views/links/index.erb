@@ -2,13 +2,16 @@
 
 <ul id='links'>
   <% @links.each do |link|%>
+  Title: <%= link.title%>
     <li>
-      Title:    <%= link.title%>
-      URL:      <%= link.url%>
+      URL: <%= link.url%>
+    </li>
+    <li>
       Tags:
       <% link.tags.each do |tag|%>
         <%= tag.name%>
       <%end %>
     </li>
+    <br>
   <% end %>
 </ul>
